@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "smooth_archon_spellpower_compat",
+  "version": "${version}",
+  "name": "Smooth Archon SpellPower Compat",
+  "description": "Compatibility bridge for Archon Renewed 1.1.5 and modern Spell Power on Minecraft 1.20.1.",
+  "authors": [
+    "Marj4n"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.marj4n.smooth_archon_spellpower_compat.SmoothArchonSpellPowerCompat"
+    ]
+  },
+  "mixins": [
+    "smooth_archon_spellpower_compat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "minecraft": "1.20.1",
+    "archon": "*",
+    "spell_power": ">=1.6.0"
+  }
+}

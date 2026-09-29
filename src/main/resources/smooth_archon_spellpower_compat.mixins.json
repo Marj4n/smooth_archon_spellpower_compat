@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.marj4n.smooth_archon_spellpower_compat.mixin",
+  "plugin": "org.marj4n.smooth_archon_spellpower_compat.mixin.SmoothArchonSpellPowerCompatMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ArchonSpellAttributableMarkerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
