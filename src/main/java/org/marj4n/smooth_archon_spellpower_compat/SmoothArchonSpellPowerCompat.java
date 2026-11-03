@@ -10,6 +10,7 @@ public final class SmoothArchonSpellPowerCompat implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Smooth Archon SpellPower Compat loaded: Archon legacy SpellSchool attribute bridge enabled.");
+        LOGGER.info(
+                "Smooth Archon SpellPower Compat loaded: Archon legacy SpellSchool attribute bridge enabled.");
     }
 }

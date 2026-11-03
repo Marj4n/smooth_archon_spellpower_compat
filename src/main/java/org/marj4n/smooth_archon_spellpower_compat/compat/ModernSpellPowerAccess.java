@@ -13,8 +13,7 @@ import org.jetbrains.annotations.Nullable;
  * attribute before/alongside registry linking.
  */
 public final class ModernSpellPowerAccess {
-    private ModernSpellPowerAccess() {
-    }
+    private ModernSpellPowerAccess() {}
 
     @Nullable
     public static EntityAttribute attribute(SpellSchool school) {

@@ -28,11 +28,11 @@ import java.util.Set;
 public final class SmoothArchonSpellPowerCompatMixinPlugin implements IMixinConfigPlugin {
     private static final String ARCHON_TARGET = "safro.archon.api.spell.SpellAttributable";
     private static final String SPELL_SCHOOL = "net/spell_power/api/SpellSchool";
-    private static final String ACCESS = "org/marj4n/smooth_archon_spellpower_compat/compat/ModernSpellPowerAccess";
+    private static final String ACCESS =
+            "org/marj4n/smooth_archon_spellpower_compat/compat/ModernSpellPowerAccess";
 
     @Override
-    public void onLoad(String mixinPackage) {
-    }
+    public void onLoad(String mixinPackage) {}
 
     @Override
     public String getRefMapperConfig() {
@@ -46,8 +46,7 @@ public final class SmoothArchonSpellPowerCompatMixinPlugin implements IMixinConf
     }
 
     @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
-    }
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
 
     @Override
     public List<String> getMixins() {
@@ -55,11 +54,18 @@ public final class SmoothArchonSpellPowerCompatMixinPlugin implements IMixinConf
     }
 
     @Override
-    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-    }
+    public void preApply(
+            String targetClassName,
+            ClassNode targetClass,
+            String mixinClassName,
+            IMixinInfo mixinInfo) {}
 
     @Override
-    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+    public void postApply(
+            String targetClassName,
+            ClassNode targetClass,
+            String mixinClassName,
+            IMixinInfo mixinInfo) {
         if (!ARCHON_TARGET.equals(targetClassName)) {
             return;
         }
@@ -72,8 +78,7 @@ public final class SmoothArchonSpellPowerCompatMixinPlugin implements IMixinConf
         if (patched == 0) {
             throw new IllegalStateException(
                     "Smooth Archon SpellPower Compat could not find Archon's legacy SpellSchool.attribute access. "
-                            + "Archon may have changed; refusing to silently leave the known incompatibility unpatched."
-            );
+                            + "Archon may have changed; refusing to silently leave the known incompatibility unpatched.");
         }
     }
 
@@ -89,13 +94,15 @@ public final class SmoothArchonSpellPowerCompatMixinPlugin implements IMixinConf
                     && "attribute".equals(field.name)
                     && isEntityAttribute(field.desc)) {
 
-                method.instructions.set(field, new MethodInsnNode(
-                        Opcodes.INVOKESTATIC,
-                        ACCESS,
-                        "attribute",
-                        Type.getMethodDescriptor(Type.getType(field.desc), Type.getObjectType(SPELL_SCHOOL)),
-                        false
-                ));
+                method.instructions.set(
+                        field,
+                        new MethodInsnNode(
+                                Opcodes.INVOKESTATIC,
+                                ACCESS,
+                                "attribute",
+                                Type.getMethodDescriptor(
+                                        Type.getType(field.desc), Type.getObjectType(SPELL_SCHOOL)),
+                                false));
                 patched++;
             }
 
