@@ -9,5 +9,4 @@ import org.spongepowered.asm.mixin.Pseudo;
  */
 @Pseudo
 @Mixin(targets = "safro.archon.api.spell.SpellAttributable", priority = 100, remap = false)
-public interface ArchonSpellAttributableMarkerMixin {
-}
+public interface ArchonSpellAttributableMarkerMixin {}
